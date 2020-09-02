@@ -5,7 +5,7 @@ const im = require(`../databace interactions/interactionManiger`)
 const postModel = require('../dataModels/postModel');
 const dummyData = require('../testing/dummyData/dummyTimeline')
 
-router.post("/",(req,res,next)=> {
+router.post("/",async (req,res,next)=> {
     //get data from body
     let header = req.body.header;
     let pic = req.body.picture;
@@ -18,9 +18,10 @@ router.post("/",(req,res,next)=> {
     im.createPost(post);
     // make an asych promos for grabing the timeline
     //soon we will link a databace
-    let data=dummyData.dummyTimeLine(10);
-    data.unshift(post)
-    res.status(200).send(data);
+    let timeline = await im.grabTimeline()
+    //let data=dummyData.dummyTimeLine(10);
+    //data.unshift(post)
+    res.status(200).send(timeline);
 });
 
 module.exports = router;

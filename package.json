@@ -1,0 +1,32 @@
+{
+  "name": "api-reddit-clone",
+  "version": "1.0.0",
+  "description": "this is my attempt to show case my my ability on creating a RESTfull API",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jest": "^26.4.2",
+    "js-yaml": "^3.14.0",
+    "mssql": "^6.2.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swordcom367/API-reddit-clone.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "swordcom36",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swordcom367/API-reddit-clone/issues"
+  },
+  "homepage": "https://github.com/swordcom367/API-reddit-clone#readme"
+}
