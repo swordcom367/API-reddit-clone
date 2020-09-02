@@ -1,0 +1,15 @@
+MSqlconnectionConfig:
+    server: "localhost"
+    database: "Poster" 
+    user: 'adm'
+    password: 'admin'
+MySqlonnectionConfig:
+    host: "localhost"
+    user: "test"
+    password: "test"
+    database: "Users"
+# this flag sets whether you are using my sql or microsoft sql 
+# mySql= my Sql
+# mSql = microsoft sql
+flags:
+    databace: 'mSql'

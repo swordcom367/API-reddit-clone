@@ -3,7 +3,7 @@ module.exports.createPost = function createPost(head,pic,disc,time,poster) {
         header: head,
         picture:pic,
         discription:disc,
-        timing:time,
+        postTime:time,
         user:poster
     }
     return post;
