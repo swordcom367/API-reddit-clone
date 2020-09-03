@@ -1,0 +1,15 @@
+FROM node:12
+
+WORKDIR /POSTer
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+ENV PORT=1234
+
+EXPOSE 1235
+
+CMD ["npm","run-script","build"]

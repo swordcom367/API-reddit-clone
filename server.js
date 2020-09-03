@@ -3,7 +3,7 @@ const http = require('http');
 const app = require("./app");
 
 
-const port = 1234;//replace with an enviorment varuble
+const port = process.env.port || 8080;//replace with an enviorment varuble
 
 const server = http.createServer(app);
 

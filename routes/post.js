@@ -12,15 +12,10 @@ router.post("/",async (req,res,next)=> {
     let disc = req.body.discription;
     let postTime = "will be real time latter"
     let user = req.body.user;
-    //later create a function that gets an idNum from the date and time
     var post = postModel.createPost(header,pic,disc,postTime,user);
     // add to databace for now just add to fo databace
     im.createPost(post);
-    // make an asych promos for grabing the timeline
-    //soon we will link a databace
     let timeline = await im.grabTimeline()
-    //let data=dummyData.dummyTimeLine(10);
-    //data.unshift(post)
     res.status(200).send(timeline);
 });
 
