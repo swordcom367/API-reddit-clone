@@ -5,9 +5,9 @@ let dummyData = {
     //timeing: current_hour
 };
 
-var test = addCard(dummyData);
+//var test = addCard(dummyData);
 
-var timeline = document.getElementById("timelineContaner");
+let timeline = document.getElementById("timelineContaner");
 timeline.appendChild(test);
 
 function addCard(timelineOBJ) {

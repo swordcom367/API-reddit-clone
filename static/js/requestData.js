@@ -11,7 +11,7 @@ $(document).ready(function() {
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
-            url: 'http://localhost:1234/post',
+            url: 'http://localhost:8080/post',
             data: {
                 header:headerData, 
                 picture: pictureData, 
@@ -32,7 +32,7 @@ $(document).ready(function() {
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
-            url: 'http://localhost:1234/timeline',
+            url: 'http://localhost:8080/timeline',
             data: {username: $("#username").val(), apiKey: sessionStorage.ApiKey },
             success: function(jsondata){
                 //clear the old data

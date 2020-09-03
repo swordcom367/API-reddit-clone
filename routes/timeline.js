@@ -6,7 +6,7 @@ const im = require('../databace interactions/interactionManiger')
 
 router.post("/",async function(req,res,next) {
         let timeLine = await im.grabTimeline();
-        res.status(200).send(timeLine);
+        res.status(200).send(timeLine.reverse());
 });
 
 module.exports = router;
