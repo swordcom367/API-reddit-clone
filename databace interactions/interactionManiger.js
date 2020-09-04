@@ -24,12 +24,13 @@ module.exports.createPost= async function(postObj) {
 //--------------------------pass
 module.exports.grabPassword =async function(username) {
     //grab password
-    let sqlString=await stringAssembly.getString(["username","password"],"passwords","username",`${username}`); 
+    let sqlString=await stringAssembly.getStringWhere(["username","password"],"user_passwords","username",`${username}`); 
     let dataBaceQuery = await configAndQuery(sqlString)
     return dataBaceQuery;
 }
 module.exports.createAcount = async function(username,password) {
     let sqlValuesString = stringAssembly.sqlMap(["string","string"],[username,password]);
+    let sqlString = stringAssembly.setString(sqlValuesString,["username","password"],"user_passwords")
     let dataBaceQuery = await configAndQuery(sqlString);
     
 }
