@@ -5,7 +5,7 @@ const fs =require('fs');
 const yaml = require('js-yaml')
 const path = require('path');
 
-
+//----------------------posts
 module.exports.grabTimeline = async function() {
     let sqlString=await stringAssembly.getString(["header","picture","discription","postTime","username"],"posts"); 
     let dataBaceQuery = await configAndQuery(sqlString);
@@ -20,6 +20,18 @@ module.exports.createPost= async function(postObj) {
     console.log(sqlString)
     let dataBaceQuery = await configAndQuery(sqlString);
     //should return conformaiton that it works
+}
+//--------------------------pass
+module.exports.grabPassword =async function(username) {
+    //grab password
+    let sqlString=await stringAssembly.getString(["username","password"],"passwords","username",`${username}`); 
+    let dataBaceQuery = await configAndQuery(sqlString)
+    return dataBaceQuery;
+}
+module.exports.createAcount = async function(username,password) {
+    let sqlValuesString = stringAssembly.sqlMap(["string","string"],[username,password]);
+    let dataBaceQuery = await configAndQuery(sqlString);
+    
 }
 //--------------------------
 async function configAndQuery(sqlString) {
