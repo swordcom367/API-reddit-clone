@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
-
+const saltRounds =10;
 module.exports.encryptPassword = async function(pass) {
-    let salt = bcrypt.genSaltSync(10);
-    let hash =await bcrypt.hash("hello",salt);
+    let salt = bcrypt.genSaltSync(saltRounds);
+    let hash =await bcrypt.hash(pass,salt);
     return hash
 }

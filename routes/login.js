@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 router.post("/",async (req,res,next) => {
     let username = req.body.username;
     let sentPassword = req.body.password;
-    console.log(sentPassword);
+    console.log(req.body);
     let dbPass =await im.grabPassword(username);
     console.log(dbPass.recordset[0].password)
     console.log("working");
@@ -24,7 +24,7 @@ router.post("/",async (req,res,next) => {
             })
         } else {
             res.status(401).json( {
-                loginResponce:"gamer"
+                loginResponce:"wrong pass yo"
             })
         }
     });
@@ -35,7 +35,6 @@ router.post("/create",async (req,res,next)=> {
     let sentPassword = req.body.password;
 
    let encrypted =await encypter.encryptPassword(sentPassword);
-   console.log("yo");
    im.createAcount(username,encrypted);
    res.status(200).json({
         message:"working"

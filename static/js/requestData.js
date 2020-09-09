@@ -11,7 +11,7 @@ $(document).ready(function() {
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
-            url: 'http://localhost:8080/post',
+            url: 'http://localhost:8080/login',
             data: {
                 header:headerData, 
                 picture: pictureData, 

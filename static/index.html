@@ -6,17 +6,37 @@
     <h1>POSTer</h1>
     <!-- here is where is where I should put a form for 
     createing a post -->
+    <div class="container">
+        <div class="row h-100 my-auto text-center">
+            <h1 id="status"></h1>
+            <label class="switch">
+                <input id="slider" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <h3 class="center">Username</h3>
+            <input class="" type="text" id="username" name="">
+            <h3>password</h3>
+            <input class="" type="password" id="password" name="">
+        </div>
+        <div class="row h-100 my-auto text-center">
+            <button class="login">login</button>
+        </div>
+    </div>
+
     <div class="postLocation">
         <input type="text" class="header">
         <input type="text" class="picture">
         <input type="text" class="discription">
         <button class="submit">submit Post</button>
     </div>
+
     <button class="getTimeline">grab timeline</button>
     <div id="timelineContaner">
         
     </div>
+    <link rel="stylesheet" href="../static/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/createTimeline.js"></script>
     <script src="./js/requestData.js"></script>
+    <script src="./js/login.js"></script>
 </body>

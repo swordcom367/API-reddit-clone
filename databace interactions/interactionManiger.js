@@ -25,6 +25,7 @@ module.exports.createPost= async function(postObj) {
 module.exports.grabPassword =async function(username) {
     //grab password
     let sqlString=await stringAssembly.getStringWhere(["username","password"],"user_passwords","username",`${username}`); 
+    console.log(sqlString + "ggg gamer");
     let dataBaceQuery = await configAndQuery(sqlString)
     return dataBaceQuery;
 }
