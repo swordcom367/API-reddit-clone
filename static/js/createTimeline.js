@@ -8,7 +8,7 @@ let dummyData = {
 //var test = addCard(dummyData);
 
 let timeline = document.getElementById("timelineContaner");
-timeline.appendChild(test);
+//timeline.appendChild(test);
 
 function addCard(timelineOBJ) {
     var timelineCard = document.createElement('div');

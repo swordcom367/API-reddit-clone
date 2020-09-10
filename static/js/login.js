@@ -10,7 +10,11 @@ $(document).ready(function() {
                 password:$("#password").val()
             },
             success: function(jsondata){
-                updateTimeLine(jsondata);
+                console.log(jsondata);
+                sessionStorage.ApiKey = jsondata.APIKey
+                console.log(sessionStorage.ApiKey);
+                clearTimeline();
+                grabTimeline();
             }
         });
     });

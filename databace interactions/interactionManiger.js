@@ -35,6 +35,11 @@ module.exports.createAcount = async function(username,password) {
     let dataBaceQuery = await configAndQuery(sqlString);
     
 }
+//--------------------------API keys
+//see if this is needed
+module.exports.createApiKey = async function(username,APIkey) {
+    //create an api key in the db
+}
 //--------------------------
 async function configAndQuery(sqlString) {
     let config = await readYaml();

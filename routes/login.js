@@ -3,6 +3,8 @@ const router = express.Router();
 const encypter= require('../verifications/encryptPassword');
 const im = require('../databace interactions/interactionManiger')
 const bcrypt = require('bcryptjs');
+const APIdis = require('../verifications/distributeAPIkey')
+
 router.post("/",async (req,res,next) => {
     let username = req.body.username;
     let sentPassword = req.body.password;
@@ -18,9 +20,10 @@ router.post("/",async (req,res,next) => {
                 message:"err"
             });
         }
+        console.log(comerison);
         if(comerison===true) {
             res.status(200).json( {
-                APIKey:"will be added soon"
+                APIKey: APIdis.addNewKey(username)
             })
         } else {
             res.status(401).json( {

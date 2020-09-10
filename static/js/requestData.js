@@ -1,8 +1,8 @@
 
 
 $(document).ready(function() {
+   // clearTimeline();
     $(".submit").click(function() {
-        console.log("testing");
         var headerData =$(".header").val();
         var pictureData =$(".picture").val();
         var discriptionData =$(".discription").val();
@@ -11,7 +11,7 @@ $(document).ready(function() {
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
-            url: 'http://localhost:8080/login',
+            url: 'http://localhost:8080/post',
             data: {
                 header:headerData, 
                 picture: pictureData, 
@@ -27,25 +27,35 @@ $(document).ready(function() {
 
 
     var timeline = document.getElementById("timelineContaner");
-    $(".getTimeline").click(function() {
-        $.ajax({
-            type: 'POST',
-            crossDomain: true,
-            dataType: 'JSON',
-            url: 'http://localhost:8080/timeline',
-            data: {username: $("#username").val(), apiKey: sessionStorage.ApiKey },
-            success: function(jsondata){
-                //clear the old data
-                console.log(jsondata);
-                updateTimeLine(jsondata)
-            }
-        });
-    });
+    $(".getTimeline").click(grabTimeline);
 });
+function grabTimeline() {
+    $.ajax({
+        type: 'POST',
+        crossDomain: true,
+        dataType: 'JSON',
+        url: 'http://localhost:8080/timeline',
+        data: {username: $("#username").val(), apiKey: sessionStorage.ApiKey },
+        success: function(jsondata){
+            //clear the old data
+            console.log(jsondata);
+            clearTimeline();
+            updateTimeLine(jsondata)
+        }
+    });
+}
 function updateTimeLine(TimeLine) {
     for (let i = 0; i < TimeLine.length; i++) {
         const element = TimeLine[i];
         let card = addCard(element);
         timeline.appendChild(card);
+    }
+}
+function clearTimeline() {
+    const timeline = document.getElementById("timelineContaner");
+    if(timeline.firstChild != null) {
+        while (timeline.firstChild) {
+        timeline.removeChild(timeline.lastChild);
+        }
     }
 }
