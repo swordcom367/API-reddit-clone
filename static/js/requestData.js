@@ -3,22 +3,13 @@
 $(document).ready(function() {
    // clearTimeline();
     $(".submit").click(function() {
-        var headerData =$(".header").val();
-        var pictureData =$(".picture").val();
-        var discriptionData =$(".discription").val();
 
         $.ajax({
             type: 'POST',
             crossDomain: true,
             dataType: 'JSON',
             url: 'http://localhost:8080/post',
-            data: {
-                header:headerData, 
-                picture: pictureData, 
-                discription:discriptionData,
-                timing:"test time",
-                user:"username"
-            },
+            data: createPostRequest(),
             success: function(jsondata){
                 updateTimeLine(jsondata);
             }
@@ -35,7 +26,7 @@ function grabTimeline() {
         crossDomain: true,
         dataType: 'JSON',
         url: 'http://localhost:8080/timeline',
-        data: {username: $("#username").val(), apiKey: sessionStorage.ApiKey },
+        data: grabTimelineRequest(),
         success: function(jsondata){
             //clear the old data
             console.log(jsondata);

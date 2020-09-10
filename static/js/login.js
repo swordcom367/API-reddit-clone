@@ -5,14 +5,11 @@ $(document).ready(function() {
             crossDomain: true,
             dataType: 'JSON',
             url: 'http://localhost:8080/login',
-            data: {
-                username:$("#username").val(),
-                password:$("#password").val()
-            },
+            data: loginRequest(),
             success: function(jsondata){
                 console.log(jsondata);
                 sessionStorage.ApiKey = jsondata.APIKey
-                console.log(sessionStorage.ApiKey);
+                sessionStorage.username = $("#username").val();
                 clearTimeline();
                 grabTimeline();
             }

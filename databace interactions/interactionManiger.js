@@ -11,6 +11,12 @@ module.exports.grabTimeline = async function() {
     let dataBaceQuery = await configAndQuery(sqlString);
     return dataBaceQuery.recordset;
 }
+module.exports.grabUserTimeline = async function(username) {
+    let sqlString=await stringAssembly.getStringWhere(["header","picture","discription","postTime","username"],"posts","username",`${username}`);
+    console.log(sqlString);
+    let dataBaceQuery = await configAndQuery(sqlString);
+    return dataBaceQuery.recordset;
+}
 module.exports.createPost= async function(postObj) {
     console.log(postObj);
     let sqlValuesString = stringAssembly.sqlMap(["string","string","string","","string"],[postObj.header,postObj.picture,postObj.discription,"CURRENT_TIMESTAMP",postObj.user]);
